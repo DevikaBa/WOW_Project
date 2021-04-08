@@ -1,0 +1,209 @@
+/* body{
+    background-color: green;
+    color: pink;
+}  */
+
+/* h1{
+    background-color: red;
+    color: blue;
+}
+
+.second_image {
+    background-image: url('/static/css/images/profile.jpg')
+}
+.first_image {
+    background-image: url('/static/css/images/profile.jpg')
+     */
+
+
+
+/* hidden {
+    visibility: hidden;
+  }
+   */
+  /* start of the carousel */
+  .carousel-item {
+    height: 32rem;
+    background: #777;
+    color: white;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 50px;
+  }
+  
+  .first_image {
+    background: url("static/images/bkDoc.jpg");
+    background-repeat: repeat;
+    background-image: cover;
+    background-size: cover;
+    background-position: 50% 35%;
+  }
+  
+  .second_image {
+    background: url("images/blackdoctors.jpg");
+    background-repeat: repeat;
+    background-image: cover;
+    background-size: cover;
+  }
+  
+  .third_image {
+    background: url("images/asianDoc.jpg");
+    background-repeat: repeat;
+    background-image: cover;
+    background-size: cover;
+    background-position: 50% 40%;
+  }
+  .forth_image {
+    background: url("images/crashkan.jpg");
+    background-repeat: repeat;
+    background-image: cover;
+    background-size: cover;
+    background-position: 50% 0px;
+  }
+  /* end of the carousel */
+  
+  /* start of the nav bar */
+  .site-nav ul li {
+    width: 33.332%;
+    margin-right: 0;
+  }
+  
+  .site-nav ul a {
+    padding: 15px 0;
+    text-align: center;
+    /* margin-bottom: 5px; */
+    margin-right: 5px;
+  }
+  
+  .site-nav {
+    max-width: 50%;
+  }
+  /* no margin bottom on the nav bar */
+  ul {
+    margin-bottom: 0px;
+  }
+  ul li {
+    list-style: none;
+    margin-top: 40px;
+  }
+  
+  .site-nav a {
+    text-decoration: none;
+    color: red;
+    padding: 10px 20px;
+    /* border: 3px solid lightgreen; */
+    display: block;
+    /*#### start of the transitions */
+    transition-property: all;
+    transition-duration: 2s;
+    /*#### /end of the transitions */
+  }
+  ul.flex-items {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .site-nav a:hover {
+    background-color: yellow;
+  }
+  
+  .site-nav a:active {
+    background-color: black;
+  }
+  .site-nav a:visited {
+    background-color: blue;
+  }
+  
+  img.image-size {
+    max-width: width 1px;
+    height: 100px;
+  }
+  /* end of the nav bar */
+  
+  /* h2 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    size: 150px;
+    fill: #294f6d;
+  } */
+  /* div {
+    width: 500px;
+    height: 50px;
+  } */
+  /* h1 {
+    text-align: center;
+    fill: 02111 D;
+  } */
+  input[type="text"]:hover {
+    background-color: lightgrey;
+    box-shadow: 0 0 2 spx 0;
+  }
+  .range {
+    /* width: 1000px;
+    margin-top: 100px; */
+    text-align: center;
+    /* border: none; */
+    /* border-top: 1px solid transparent; */
+  }
+  input.bigger {
+    width: 39rem;
+    /* border-radius: 50px; */
+  }
+  @media only screen and (max-width: 991.98px) {
+    /* .search input[type="text"] {
+      width: 400px;
+      height: 50px;
+    } */
+    input.bigger {
+      width: 19rem;
+      /* border-radius: 50px; */
+    }
+  
+    input[type="text"]:hover {
+      background-color: lightgrey;
+      box-shadow: 0 0 2 spx 0;
+    }
+  
+    /* border: none; */
+    /* border-top: 1px solid transparent; */
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* .search input[type="text"] {
+      width: 400px;
+      height: 50px;
+    } */
+    input.bigger {
+      width: 19rem;
+      /* border-radius: 50px; */
+    }
+  
+    input[type="text"]:hover {
+      background-color: lightgrey;
+      box-shadow: 0 0 2 spx 0;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    /* .search input[type="text"] {
+      width: 400px;
+      height: 50px;
+    } */
+   
+   
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 0.625rem;
+    border-top-right-radius: 0.625rem;
+  }
+  
+
+
