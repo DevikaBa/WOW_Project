@@ -1,6 +1,9 @@
-
 {% extends "base.html" %}
+{% block title %} Home Page{% endblock %}
 {% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
 <table>
     <tr>
         {% for col in column_names %}
@@ -24,4 +27,8 @@
     {% endfor %}
 
 </table>
+
+</div>
+</div>
+</div>
 {% endblock %}
