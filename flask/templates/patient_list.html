@@ -1,16 +1,77 @@
 {% extends "base.html" %}
 {% block title %} Home Page{% endblock %}
 {% block content %}
-<div class="container-fluid">
+
+
+
+  {% with messages = get_flashed_messages() %}    
+  {% if messages %}
+      {% for msg in messages %} 
+          <p class="bg-warning my-3  text-center">{{msg}}</p> 
+      {% endfor %}
+  {% endif %} 
+{% endwith %}       
+              
+
+
+             <div class="card">
+                <div class="card-header">
+                <h2 class="text-center bg-info">  </h2>
+                </div> 
+             </div>
+             
+             <div class="container mt-4">
+    <div>         
+  <form action="#" method="post"  >
+          <div class="form-group py-5 d-flex" >
+            <input type="search" class="form-control "  placeholder="Doctors name, Condition or Specialty" name="user_csv">
+            <input type="text" class="form-control  "  placeholder="Enter Zip Code" name="user_zip">
+          </div>
+          <div >
+              <button href="#" type="submit"  class="btn btn-primary myu-2 col-4 offset-4 " >Search</a>
+          </div>    
+         
+        </form>
+        </div>
+                {% for row in row_data %}
+                   <div class="card mt-2">
+                      <div class="card-body">
+                         <div class="row">
+                            <div class="col-10">  
+                               <h4 class="text-primary">{% for col, row_ in zip(column_names, row) %}
+                                {% if col == link_column %}</h4>
+                                  <p><strong>{{ row_ }}</strong></p>
+
+                                  
+                                    {% else %}
+                                    <p>{{row_}}</p>
+                                    {% endif %}
+                                    {% endfor %}
+                                
+                            </div>
+                            <div class="col-2">  
+                            <img src="#" class="rounded"  alt="Cinque Terre" width="100%" height="100%">
+                            
+                            <p><strong></strong></p> 
+                            
+                            </div>
+                         </div> 
+                      </div>
+                   </div> 
+                {% endfor %}
+
+
+
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-4">
-<table>
-    <tr>
+<table> -->
+    <!-- <tr>
         {% for col in column_names %}
         <th>{{col}}</th>
         {% endfor %}
-    </tr>
-    {% for row in row_data %}
+    </tr> -->
+    <!-- {% for row in row_data %}
     <tr>
         {% for col, row_ in zip(column_names, row) %}
         {% if col == link_column %}
@@ -24,11 +85,14 @@
         {% endif %}
         {% endfor %}
     </tr>
-    {% endfor %}
+    {% endfor %} -->
 
 </table>
 
 </div>
 </div>
 </div>
+
+
+
 {% endblock %}
