@@ -4,6 +4,7 @@ from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 import csv
+import numpy as np
 
 # create app instance
 app = Flask(__name__)
@@ -40,19 +41,17 @@ def search():
     elif request.method == 'POST':
         df = pd.read_csv("DoctorData.csv", index_col=0)
         user_input = request.form.get('user_input')
-        # user_zip = request.form.get('user_zip')
-         # specialty
+        # specialty
         df = df[df.Specialty == user_input]
-
+        # flash("congrats, you have found your doctor") 
+        # __getattribute__(self, name)
+        # filt = (df['Specialty'] == user_input)
+        # df = df.loc[filt, 'Website']
+        print(df._dict(orient="records"))
         
-        flash("congrats, you have found your doctor") 
-
-
-
-        print(user_input)
-   
+        # print(df.Website)
         return render_template("patient_list.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
-                           link_column="Patient ID", zip=zip)
+                           link_column="Patient ID", zip=zip )
     
         
         

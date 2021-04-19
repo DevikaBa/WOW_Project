@@ -1,47 +1,52 @@
-
-
-
-
-/* .second_image {
-    background-image: url('/static/css/images/profile.jpg')
+/* body{
+    background-color: green;
+    color: pink;
 }  */
 
-/* .first_image {
-  background-image: url('/static/css/images/profile.jpg')
-}  */
+ h1{
+    background-color: red;
+    color: blue;
+} 
 
- .hidden {
+.second_image {
+    background-image: url('/static/css/images/profile.jpg');
+}
+ .first_image {
+    background-image: url('/static/css/images/profile.jpg');
+    background-repeat: repeat;
+    background-image: cover;
+    background-size: cover;
+ }
+
+ hidden {
     visibility: hidden;
   }
- 
+
   /* start of the carousel */
-  
-   .carousel-item {
+  .carousel-item {
     height: 32rem;
     background: #777;
     color: white;
     position: relative;
     background-position: center;
     background-size: cover;
-  } 
+  }
   
-   /* .container  {
+  .container {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding-bottom: 1000-px;
-  } */
+    padding-bottom: 50px;
+  }
   
-  
-
-  /* .first_image {
+  .first_image {
     background: url("static/images/bkDoc.jpg");
     background-repeat: repeat;
     background-image: cover;
     background-size: cover;
     background-position: 50% 35%;
-  } 
+  }
   
   .second_image {
     background: url("images/blackdoctors.jpg");
@@ -63,7 +68,7 @@
     background-image: cover;
     background-size: cover;
     background-position: 50% 0px;
-  }  */
+  }
   /* end of the carousel */
   
   /* start of the nav bar */
@@ -196,10 +201,10 @@
    
   }
   
+  .card-img-top {
+    border-top-left-radius: 0.625rem;
+    border-top-right-radius: 0.625rem;
+  }
   
-
-
-  /* search form */
-
 
 
