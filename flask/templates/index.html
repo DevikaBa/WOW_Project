@@ -2,7 +2,257 @@
 {% block title %} Home Page{% endblock %}
 {% block content %}
 
-<div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+<style>
+
+  :root {
+    --overlay-color:#03a9f4;
+  }
+ * {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family:'Poppins', san-serif;
+}
+
+
+
+
+
+.showcase {
+  position: absolute;
+  right:0;
+  width:100%;
+  min-height:100vh;
+  padding:100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#111;
+  color:#fff;
+  z-index:2; 
+}
+
+.showcase header {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showcase video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.showcase.active {
+  right:300px
+}
+.logo {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%; 
+  background-color: var(--overlay-color);
+  mix-blend-mode:overlay;
+}
+
+.text {
+  position: relative;
+  z-index: 10;
+}
+
+.text h2 {
+  font-size:5em;
+  font-weight: 800;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.text h3 {
+  font-size:4em;
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;  
+}
+
+.text p {
+  font-size:1.1em;
+  margin:20px 0;
+  font-weight: 400;
+  max-width:700px ; 
+}
+
+.text a {
+ display: inline-block;
+ font-size: 1em;
+ background: #fff;
+ padding: 10px 30px;
+ text-decoration: none;
+ color:#111;
+ margin-top: 10px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ transition: 0.2s;
+}
+
+.text a:hover {
+  letter-spacing: 6px;
+  
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-image: url('/static/css/images/menu.png');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+}
+
+.toggle.active {
+  background-image: url('/static/css/images/x.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;  
+}
+
+.social {
+  position:absolute;
+  bottom: 20px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  
+}
+
+.social li {
+  list-style:none;
+
+}
+
+.social li a {
+  display: inline-block;
+  filter: invert(1);
+  margin-right: 20px;
+  transform: scale(0.5);
+  transition: 0.5;
+}
+
+.social li a:hover {
+  transform: scale(0.5) translateY(-15px);
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width:300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu ul {
+  position: relative;
+  list-style: none;
+}
+
+.menu ul li a {
+ text-decoration: none;
+ font-size:24px ;
+ color: #111;
+}
+
+.menu ul li a:hover {
+ color: var(--overlay-color);
+}
+
+
+
+
+@media(max-width:798px) {
+  .showcase, 
+  .showcase header {
+    padding:40px
+  }
+
+  .text h2 {
+    font-size: 3em;
+  }
+  .text h3 {
+  font-size: 2em;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+  </style>
+
+<section class="showcase">
+  <header>
+    <h2 class="logo">Python Doctors</h2>
+    <div class="toggle "></div>
+  </header>
+
+  <video muted loop autoplay>
+    <source src="{{ url_for('static', filename='css/images/doctorVideo.mp4')}}"/>
+    Your browser does not support the video tag.
+  </video>
+
+<div class="overlay"></div>
+
+<div class="text">
+  <h2>never stop</h2>
+  <h3>Explorint the world</h3>
+  <p>Our expertise lies in our ability to service a multitude of ethnicities, understanding their unique genetic makeups</p>
+  <a href="#">Explore</a>
+</div>
+
+<ul class="social">
+   <li><a href="#"><img src="{{ url_for('static', filename='css/images/fb.png')}}" alt="img of facebook"></a></li>
+   <li><a href="#"><img width="49px" height="49px" src="{{ url_for('static', filename='css/images/twitter.png')}}" alt="img of twitter"></a></li>
+   <li><a href="#"><img width="49px" height="49px" src="{{ url_for('static', filename='css/images/instagram.png')}}" alt="img of instagram"></a></li>
+   
+</ul>
+
+</section>
+
+<div class="menu">
+  <ul>
+    <li> <a href="#">Home</a></li>
+    <li> <a href="#">login</a></li>
+    <li> <a href="#">search</a></li>
+    <li> <a href="#">patient list</a></li>
+ </ul>
+</div>
+
+
+
+
+  
+
+<!-- <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" >
       <img src="{{ url_for('static', filename='css/images/BkDoc.jpg')}}" class="d-block w-100" alt="...">
@@ -52,7 +302,7 @@
 
 
 
- <!-- <img src="{{ url_for('static', filename='css/images/profile.jpg')}}" > 
+ <img src="{{ url_for('static', filename='css/images/profile.jpg')}}" > 
 <div id="myCarousel" class="carousel slide carousel-fade mb-5 " data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -114,7 +364,7 @@
       </a>
     </div> -->
     <!-- start of the new cards -->
-    <div id="cards" class=" my-5 ">
+    <!-- <div id="cards" class=" my-5 ">
       <div class="example col-md-12 ml-auto mr-auto">
           <div class="row">
               <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
@@ -164,13 +414,13 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 d-none sm-hidden last ">
               <div class="card h-100 shadow-lg">
-                  <!-- <img class="card-img-top" src="css/images/drchavez.jpg" alt="Card image cap"> -->
-                  <div class="card-body">
+                   <img class="card-img-top" src="css/images/drchavez.jpg" alt="Card image cap"> -->
+                  <!-- <div class="card-body">
                       <h4 class="card-title">Second Card Title</h4>
                       <p class="card-text">The tourney of Ashford Meadows. As High as Honor. The rains of
                           castamere. Pay the iron price. A dream of Spring.</p> -->
 
-                  </div>
+                  <!-- </div>
                   <div class="card-footer">
                       <a href="#" class="btn btn-primary ">Read More</a>
                   </div>
@@ -181,7 +431,7 @@
              
           </div>
       </div>
-  </div>
+  </div>  -->
 
 {% endblock %}
 

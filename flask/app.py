@@ -38,10 +38,19 @@ def search():
 
     elif request.method == 'POST':
         df = pd.read_csv("DoctorData.csv", index_col=0)
+        df['Zipcode'] = df['Zipcode'].astype(str)
         user_input = request.form.get('user_input')
-        # user_zip = request.form.get('user_zip')
-         # specialty
-        df = df[df.Specialty == user_input]
+        user_zip = request.form.get('user_zip')
+         # if user input for specialty is not empty, filter doctor by specialty
+        if user_input != "":
+            df = df[df.Specialty == user_input]
+        # if user zip is not empty , filter by that catagory 
+        if user_zip != "":
+            df = df[df.Zipcode == user_zip]
+        print(user_input)
+        print(user_zip)
+
+        
 
         
         flash("congrats, you have found your doctor") 
