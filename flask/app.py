@@ -42,7 +42,7 @@ def search():
         # user_zip = request.form.get('user_zip')
          # specialty
         df = df[df.Specialty == user_input]
-
+        
         
         flash("congrats, you have found your doctor") 
 
