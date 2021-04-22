@@ -3,34 +3,24 @@ from flask import Flask, redirect, url_for, render_template, request, session, f
 from datetime import timedelta
 import pandas as pd
 import csv
+import re
+
 
 # create app instance
 app = Flask(__name__)
 app.secret_key = "hellotherebill"
 app.permanent_session_lifetime = timedelta(minutes=1)
 
-# df = pd.DataFrame({'Patient Name': ["Some name", "Another name"],
-#                        "Patient ID": [123, 456],
-#                        "Misc Data Point": [8, 53],
-#                        "zip codes": [ "000000", "999999"]})
+                    
 df = pd.read_csv("DoctorData.csv", index_col=0)
-# df.to_html("output.html")
-# pd.set_option('display.max_columns', 6)
-# pd.set_option('display.max_rows', 5)
-# # # print(df.head())
-
-# # print(df.loc[df['Zip code'] == 91301])
-# filt = (df['Specialty'] == 'Family Medicine')
-# print(df.loc[filt])
-# print(df[filt])
 
 
-@app.route("/patient_list", methods=["POST", "GET"])
-def patient_list():
-    return render_template("patient_list.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
-                           link_column="Patient ID", zip=zip)
 
 
+
+
+
+# search page
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     if request.method == "GET":
@@ -38,53 +28,35 @@ def search():
 
     elif request.method == 'POST':
         df = pd.read_csv("DoctorData.csv", index_col=0)
+        # turns the zipcode into string
         df['Zipcode'] = df['Zipcode'].astype(str)
+        # getting the users input for doctors names/specialty 
         user_input = request.form.get('user_input')
+        # getting the users input  zip codes 
         user_zip = request.form.get('user_zip')
-         # if user input for specialty is not empty, filter doctor by specialty
-        if user_input != "":
+         
+        
+        if user_input == "": 
+            df = df[df.Zipcode == user_zip] 
+    
+                
+        if user_zip == "":
             df = df[df.Specialty == user_input]
-        # if user zip is not empty , filter by that catagory 
-        if user_zip != "":
-            df = df[df.Zipcode == user_zip]
-        print(user_input)
-        print(user_zip)
 
-        
-
-        
-        flash("congrats, you have found your doctor") 
-
-
-
-        print(user_input)
-   
-        return render_template("patient_list.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
+        return render_template("search.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
                            link_column="Patient ID", zip=zip)
     
         
         
 
         
-       
-        
-        
-
-    
-           
-    
-
-     
-
-       
-          
-
+# home page 
 @app.route("/home")
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
+# login in page
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
@@ -99,7 +71,8 @@ def login():
             return redirect(url_for("user"))
 
         return render_template("login.html")
-   
+
+# user page    
 @app.route("/user", methods=["POST", "GET"]) 
 def user():
     email = None
@@ -118,7 +91,7 @@ def user():
     else:
         flash("You are not logged in!")
         return redirect(url_for("login"))
-
+# log out page 
 @app.route("/logout")    
 def logout():
     flash("you have been logged out!", "info")

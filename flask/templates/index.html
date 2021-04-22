@@ -7,6 +7,7 @@
 
   :root {
     --overlay-color:#03a9f4;
+
   }
  * {
   margin:0;
@@ -30,7 +31,8 @@
   align-items: center;
   background-color:#111;
   color:#fff;
-  z-index:2; 
+  z-index:2;
+  transition: 2.0s; 
 }
 
 .showcase header {
@@ -109,6 +111,7 @@
  text-transform: uppercase;
  letter-spacing: 2px;
  transition: 0.2s;
+ /* box-shadow: 0 0 5px 0; */
 }
 
 .text a:hover {
@@ -217,16 +220,17 @@
 
   <video muted loop autoplay>
     <source src="{{ url_for('static', filename='css/images/doctorVideo.mp4')}}"/>
-    Your browser does not support the video tag.
+   
   </video>
 
 <div class="overlay"></div>
 
 <div class="text">
   <h2>never stop</h2>
-  <h3>Explorint the world</h3>
+  <h3>
+    Healing the world</h3>
   <p>Our expertise lies in our ability to service a multitude of ethnicities, understanding their unique genetic makeups</p>
-  <a href="#">Explore</a>
+  <a href="/search">Find a doctor</a>
 </div>
 
 <ul class="social">
@@ -240,10 +244,10 @@
 
 <div class="menu">
   <ul>
-    <li> <a href="#">Home</a></li>
-    <li> <a href="#">login</a></li>
-    <li> <a href="#">search</a></li>
-    <li> <a href="#">patient list</a></li>
+    <li> <a href="/">Home</a></li>
+    <li> <a href="/login">Login</a></li>
+    <li> <a href="/search">Find a Doctor</a></li>
+    <li> <a href="/logout">Logout</a></li>
  </ul>
 </div>
 
@@ -432,7 +436,7 @@
           </div>
       </div>
   </div>  -->
-
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}
 
 
