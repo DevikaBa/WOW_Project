@@ -5,6 +5,8 @@
 
 <style>
 
+
+
   :root {
     --overlay-color:#03a9f4;
 
@@ -15,7 +17,9 @@
   box-sizing: border-box;
   font-family:'Poppins', san-serif;
 }
-
+span.borderHeader {
+border: 2px solid white;
+}
 
 
 
@@ -125,7 +129,7 @@
   height: 60px;
   background-image: url('/static/css/images/menu.png');
   background-repeat: no-repeat;
-  background-size: 30px;
+  background-size: 53px;
   background-position: center;
   cursor: pointer;
 }
@@ -214,7 +218,7 @@
 
 <section class="showcase">
   <header>
-    <h2 class="logo">Python Doctors</h2>
+    <h2 class="logo borderHeader"><span class="borderHeader p-1">Python</span> Doctors</h2>
     <div class="toggle "></div>
   </header>
 
@@ -254,188 +258,7 @@
 
 
 
-  
-
-<!-- <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" >
-      <img src="{{ url_for('static', filename='css/images/BkDoc.jpg')}}" class="d-block w-100" alt="...">
-          <div class="container slider1">
-            <h1>Help support people of color</h1>
-            <p>Find a primary doctor in your area</p>
-            <a href="#" class="btn btn-lg btn-success">
-              Find a Doctor
-            </a>
-          </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{{ url_for('static', filename='css/images/blackdoctors.jpg')}}" class="d-block w-100" alt="...">
-      <div class="container slider1">
-        <h1>Help support people of color</h1>
-        <p>Find a primary doctor in your area</p>
-        <a href="#" class="btn btn-lg btn-info">
-          Find a Doctor
-        </a>
-      </div>
-      
-    </div>
-    <div class="carousel-item">
-      <img src="{{ url_for('static', filename='css/images/doctors.jpg')}}" class="d-block w-100" alt="...">
-      <div class="container slider1">
-        <h1>Help support people of color</h1>
-        <p>Find a primary doctor in your area</p>
-        <a href="#" class="btn btn-lg btn-primary">
-          Find a Doctor
-        </a>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-<h1>{{title}}</h1>
-
-
-
-
-
- <img src="{{ url_for('static', filename='css/images/profile.jpg')}}" > 
-<div id="myCarousel" class="carousel slide carousel-fade mb-5 " data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel"  data-slide-to="1" ></li>
-      <li data-target="#myCarousel"  data-slide-to="2" ></li>
-      <li data-target="#myCarousel"  data-slide-to="3" ></li>
-    </ol>
-  <div id="myCarousel" class="carousel slide carousel-fade shadow-lg " data-ride="carousel">
-     <div class="carousel-inner">
-        <div class="carousel-item active" style="background-image: url('/static/css/images/doctors.jpg')" data-interval="10000">
-           <img src="{{ url_for('static', filename='css/images/doctors.jpg')}}" > 
-             <div class="container">
-              <h1>Help support people of color</h1>
-              <p>Find a primary doctor in your area</p>
-              <a href="#" class="btn btn-lg btn-dark">
-                Find a Doctor
-              </a>
-            </div>
-        </div>
-        <div class="carousel-item "  data-interval="10000"> 
-       
-         <div class="container">
-            <h1>Real Doctors</h1>
-            <p> Find Doctors that fits your needs</p>
-            <a href="#" class="btn btn-lg btn-info">
-              Find a Doctor
-            </a>
-          </div>
-        </div>
-        <div class="carousel-item " style="background-image: url('/static/css/images/doctors.jpg')" data-interval="10000">
-         <img src="{{ url_for('static', filename='css/images/profile.jpg')}}" >  -->
-          <!-- <div class="container">
-            <h1>We are here to help </h1>
-            <p>Find a doctor that speaks your language</p>
-            <a href="#" class="btn btn-lg btn-success">
-              Find a Doctor
-            </a>
-          </div>
-        </div> 
-        <div class="carousel-item " style="background-image: url('/static/css/images/doctors.jpg')" data-interval="10000">  -->
-          <!-- <img src="{{ url_for('static', filename='css/images/profile.jpg')}}" > -->
-          <!-- <div class="container">
-            <h1>We are here to help </h1>
-            <p>Find a doctor that speaks your language</p>
-            <a href="#" class="btn btn-lg btn-primary">
-              Find a Doctor
-            </a>
-          </div>
-        </div>  
-     </div>
-     <a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-        <span class="sr-only">Previous</span>
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-     </a>
-
-     <a href="#myCarousel" class="carousel-control-next" role="button" data-slide="next">
-        <span class="sr-only">Next</span>
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </a>
-    </div> -->
-    <!-- start of the new cards -->
-    <!-- <div id="cards" class=" my-5 ">
-      <div class="example col-md-12 ml-auto mr-auto">
-          <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                  <div class="card shadow-lg">
-
-                      <img class="card-img-top" src="{{ url_for('static', filename='css/images/profile.jpg')}}" >
-                      <div class="card-body">
-                          <h4 class="card-title">Dr.Hush Naidoo</h4>
-                          <p class="card-text">May the Father judge him justly. The winds of Winter. A forked purple
-                              lightning bolt, on black field speckled with
-                              four-pointed stars. The North remembers. May the Father judge him justly.</p>
-
-                      </div>
-                      <div class="card-footer">
-                          <a href="#" class="btn btn-primary">Read More</a>
-                      </div>
-                  </div>
-              </div> 
-
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-                  <div class="card h-100 shadow-lg">
-                    <img class="card-img-top" src="{{ url_for('static', filename='css/images/profile.jpg')}}" >
-                      <div class="card-body">
-                          <h4 class="card-title">Dr. Piron</h4>
-                          <p class="card-text">The tourney of Ashford Meadows. As High as Honor. The rains of
-                              castamere. Pay the iron price. A dream of Spring.</p>
-
-                      </div>
-                      <div class="card-footer">
-                          <a href="#" class="btn btn-primary">Read More</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden ">
-                <div class="card h-100 shadow-lg">
-                  <img class="card-img-top" src="{{ url_for('static', filename='css/images/profile.jpg')}}" >
-                    <div class="card-body">
-                        <h4 class="card-title">Second Card Title</h4>
-                        <p class="card-text">The tourney of Ashford Meadows. As High as Honor. The rains of
-                            castamere. Pay the iron price. A dream of Spring.</p>
-
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 d-none sm-hidden last ">
-              <div class="card h-100 shadow-lg">
-                   <img class="card-img-top" src="css/images/drchavez.jpg" alt="Card image cap"> -->
-                  <!-- <div class="card-body">
-                      <h4 class="card-title">Second Card Title</h4>
-                      <p class="card-text">The tourney of Ashford Meadows. As High as Honor. The rains of
-                          castamere. Pay the iron price. A dream of Spring.</p> -->
-
-                  <!-- </div>
-                  <div class="card-footer">
-                      <a href="#" class="btn btn-primary ">Read More</a>
-                  </div>
-              </div>
-          </div>
-
-
-             
-          </div>
-      </div>
-  </div>  -->
+ 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}
 
