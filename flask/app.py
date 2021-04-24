@@ -1,4 +1,4 @@
-# packages
+# Python libraries, using the Flask package allowed us to import functions necessary to make our program user friendly
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 from datetime import timedelta
 import pandas as pd
@@ -10,45 +10,51 @@ import Levenshtein as lev
 
 # create app instance
 app = Flask(__name__)
+# using font awesome to create an attractive user page 
 fa = FontAwesome(app)
 app.secret_key = "PythonDoctors"
-app.permanent_session_lifetime = timedelta(minutes=1)
+app.permanent_session_lifetime = timedelta(minutes=1)    
 
-# reading the csv file  
+# this code is necessary to read the csv file  
 df = pd.read_csv("DoctorData.csv", index_col=0)
 
 
-# search page
+# the get and post methods are used to retrieve data from our database and post the data requested
+
 @app.route('/search', methods=['GET', 'POST'])
+# function for search page
 def search():
 
     if request.method == "GET":
         return render_template('search.html')
 
     elif request.method == 'POST':
-        # reading the csv file
+        # coding to read the csv file
         df = pd.read_csv("DoctorData.csv", index_col=0)
-        # turns the zipcode into string
+        # coding that turns the zipcode function into string
         df['Zipcode'] = df['Zipcode'].astype(str)
-        # getting the users input for doctors names/specialty 
+        # coding to allow the user to input for doctors names/specialty 
         user_input = request.form.get('user_input')
-        # getting the users input  zip codes 
+        # coding to allow the user to input for zip codes searches
         user_zip = request.form.get('user_zip')
          
-        
+       # filtering speciality per user input
         if user_input != "":
-             df = df[df.Specialty == user_input] 
-            
+            word = df = df[df.Specialty == user_input]  
+
+     # filtering if user input is entered in lower and upper case
+
             # match1 = "Family Medicine"
             # match2 = "family medicine"
             # Ratio = fuzz.ratio(match1.lower(),match2.lower())
             # Partial_Ratio = fuzz.partial_ratio(match1.lower(),match2.lower())
+            # print(Ratio)
+            # print(Partial_Ratio)
 
+        # filtering zip code per user input
         if user_zip != "":
             df = df[df.Zipcode == user_zip]
-
-            
-
+        # rendering the search function
         return render_template("search.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
                            link_column="Patient ID", zip=zip)
     
@@ -65,8 +71,12 @@ def home():
 # login in page
 @app.route("/login", methods=["POST", "GET"])
 def login():
+    # The requests module allows us to send HTTP requests using Python
+    # Session (session) data is stored on the server
     if request.method == "POST":
+       # which will use a cookie with a defined expiration date
         session.permanent = True
+        # requesting from form
         user = request.form["nm"]
         session["user"] = user
         flash("Login Succesful")

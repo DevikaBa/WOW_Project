@@ -8,9 +8,155 @@
             {% endfor %}
         {% endif %} 
     {% endwith %}
-<form action="#" method="POST">
-    <input type="email" name="email" placeholder="Enter Email" value="{{email if email}}"/> 
-    <input type="submit" value="submit"/>  
-</form>     
+    <!-- css styling -->
+<style>
+
+* {
+font-family:'Poppins', san-serif;
+box-sizing: border-box;
+}
+/*border on the logo */
+span.borderHeader {
+border: 2px solid white;
+}  
+/* upper case on the python doctor logo */
+.logo {
+text-transform: uppercase;
+cursor: pointer;
+color: white;
+}
+/*change the focus for the input  */
+input.inputResize:focus {
+background-color: lightgrey;
+}
+
+
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+}
+
+.color1 {
+background-color: white;
+}
+        
+        /* resize for the find a doctor on the search page */
+.JumboSize {
+font-size: 5em;
+}
+/* resize on the input bar */
+.inputResize {
+height: 65px;
+border: 3px solid #007bff;
+margin-right: 10px;
+
+}
+
+.borderCard {
+border: 2px solid #007bff;   
+}
+        
+        
+        
+@media (min-width:768px) {
+.bd-placeholder-img-lg {
+font-size: 3.5rem;
+}
+
+        }
+@media(max-width:768px) {
+   header a.menu {
+  display: none;
+          }
+}
+        
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+        
+#main {
+padding: 16px;
+margin-top: 30px;
+
+}
+/* margin on the fontawesome search icon */
+.searchMargin {
+margin-right: 2px;
+}
+        
+        
+        
+        
+/* change of font on the logo */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+</style>
+    {{ fontawesome_css() }}
+    <nav id="navbar" class=" container-fluid  navbar navbar-light bg-primary inline">
+        <header class=" justify-content-start mt-3 ">
+            <a href="/"> <h2 class="logo borderHeader  "><span class="borderHeader  mt-5 ml-5 p-1">Python</span> Doctors</h2></a>
+        </header>
+        <header class=" justify-content-end d-flex   ">
+            <a class="menu" href="/"> <button class="btn btn-outline-light  me-2 "><i class="fas fa-home"></i> HOME</button></a>
+            <a class="menu" href="/search"><button class="btn btn-outline-light  me-2"><i class="fas fa-search searchMargin"></i> Find a doctor</button></a>
+            <a class="menu" href="/login"><button class="btn btn-light text-primary   me-2"><i class="fas fa-sign-in-alt"></i> Log In</button></a>
+        </header>
+      </nav>    
+      {{ fontawesome_js() }} 
+       
+      <div id="main" class="container">
+        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+          <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">Bootstrap Tutorial</h1>      
+            <p class="lead my-3">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+            <p class="lead mb-0">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+          </div>
+        </div>
+      </div>
+       <!-- start of the first card -->
+      <div class="container">
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div class=" card flex-md-row mb-4 box-shawdow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-primary">world</strong> 
+                <h3 class="mb-0">
+                  <a href="#" class="text-dark">Featured post</a>
+                </h3>
+                  <div class="mb-1 text-muted">Nov 12</div>
+                  <p class="card-text mb-auto">mulule line of that form the lede , inforimn g the readers qyickly and efficienty avout what's most interstinf in</p>
+                  <a href=""> continue reading...</a>
+              </div>
+              <img class="card-img-right flex-auto d-done d-md-block" src="" alt="">
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class=" card flex-md-row mb-4 box-shawdow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-primary">world</strong> 
+                <h3 class="mb-0">
+                  <a href="#" class="text-dark">Featured post</a>
+                </h3>
+                  <div class="mb-1 text-muted">Nov 12</div>
+                  <p class="card-text mb-auto">mulule line of that form the lede , inforimn g the readers qyickly and efficienty avout what's most interstinf in</p>
+                  <a href=""> continue reading...</a>
+              </div>
+              <img class="card-img-right flex-auto d-done d-md-block" src="" alt="">
+            </div>
+          </div>
+         <!-- start of the second  -->
+         
+          
+           
+         
+          
+
+
+
+
 
 {% endblock %}
