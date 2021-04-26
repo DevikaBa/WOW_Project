@@ -3,7 +3,7 @@
 {% block content %}
 
 <style>
-
+/* change the font to poppins  */
 * {
   font-family:'Poppins', san-serif;
   box-sizing: border-box;
@@ -23,14 +23,10 @@ input.inputResize:focus {
   background-color: lightgrey;
 }
 
-
+/* changing font on the place holders */
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
-}
-
-.color1 {
-  background-color: white;
 }
 
 /* resize for the find a doctor on the search page */
@@ -45,35 +41,28 @@ margin-right: 10px;
 
 }
 
-.borderCard {
-border: 2px solid #007bff;   
-}
-
-
-
 @media (min-width:768px) {
   .bd-placeholder-img-lg {
   font-size: 3.5rem;
   }
 }
-
+/* make the navbar stay in place in a fixed postion */
 #navbar {
   overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1000;
 }
-
+/* spacing between the nav bar and the container/   */
 #main {
   padding: 16px;
   margin-top: 30px;
- 
 }
+ 
 
 
-
-
-/* change of font on the logo */
+/* change of font on the logo/ this enables the poppin font  */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 </style>
 
@@ -94,10 +83,7 @@ border: 2px solid #007bff;
 <!-- main section of the page -->
 <main id="main" role="main">
     <section class="jumbotron text-center">
-         
-      <div class="container color1">
-          
-                       
+      <div class="container color1">           
         <h1 class="jumbotron-heading  py-3 mt-5 JumboSize text-primary"><i class="fas fa-stethoscope"></i> Find a doctor</h1>
           <p class="lead text-muted py-3"> <strong>Let us assist you with all of your healthcare needs.</strong></p>
           <form action="#" method="POST" >
@@ -107,55 +93,46 @@ border: 2px solid #007bff;
             </div>
             <p class="pb-5">
                 <button href="#" type="submit"  class="btn btn-primary  col-4 shadow-lg hoverInput ">Search</a>
-        {{ fontawesome_js() }}        
             </p>
           </form>
-   
-  
         </div>
     </section> 
     </main>
+    {{ fontawesome_js() }}
+<!-- end main page and   search tool -->
+      
 
- {% with messages = get_flashed_messages() %}    
-    {% if messages %}
-        {% for msg in messages %} 
-            <p class="bg-warning my-3  text-center">{{msg}}</p> 
-        {% endfor %}
-    {% endif %} 
-  {% endwith %}       
-                
-  
-  
-            
-                  {% for row in row_data %}
-                     <div class=" container card mt-2 borderCard">
-                        <div class="card-body ">
-                           <div class="row">
-                              <div class="col-8">  
-                                 <h4 class="text-primary ">{% for col, row_ in zip(column_names, row) %}
-                                  {% if col == link_column %}</h4>
-                                    <p><strong>{{ row_ }}</strong></p>
-  
-                                    
-                                      {% else %}
-                                      <p>{{row_}}</p>
-                                      {% endif %}
-                                      {% endfor %}
-                                  
-                              </div>
-                              <div class="col-2">  
+     <!-- start of doctors datafame  -->
+     {% for row in row_data %}
+      <div  class=" container card mt-2 borderCard">
+        <div class="card-body ">
+            <div class="row">
+              <div class="col-8">  
+                <h4 class="text-primary ">{% for col, row_ in zip(column_names, row) %}
+                {% if col == link_column %}
+                </h4>
+                <p><strong>{{ row_ }}</strong></p>
+                {% else %}
+                <p>{{row_}}</p>
+                {% endif %}
+                {% endfor %}
+              </div>
+              <div class="col-2">  
+              <p><strong></strong></p> 
+              </div>
+            </div> 
+        </div>
+      </div> 
+     {% endfor %}
+     <!-- end of  doctors datafame -->
+     <!-- start of the footer -->
+     {{ fontawesome_css() }} 
+    <footer class="text-center shadow-lg">
 
-                              
-                              <p><strong></strong></p> 
-                              
-                              </div>
-                           </div> 
-                        </div>
-                     </div> 
-                  {% endfor %}
-
-
-
-
+       </div class="outer-footer">
+       2021 Copyright &copy; JTC student. All Rights Reserved
+      </div>
+    </footer>
+    {{ fontawesome_js() }}
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}

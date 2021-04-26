@@ -4,8 +4,6 @@ from datetime import timedelta
 import pandas as pd
 import csv
 from flask_fontawesome import FontAwesome
-from fuzzywuzzy import fuzz
-import Levenshtein as lev 
 
 
 # create app instance
@@ -24,10 +22,10 @@ df = pd.read_csv("DoctorData.csv", index_col=0)
 @app.route('/search', methods=['GET', 'POST'])
 # function for search page
 def search():
-
+    # HTTP request , comsuming data, GET request is used for viewing something
     if request.method == "GET":
         return render_template('search.html')
-
+    # POST is used for changing something
     elif request.method == 'POST':
         # coding to read the csv file
         df = pd.read_csv("DoctorData.csv", index_col=0)
@@ -41,16 +39,6 @@ def search():
        # filtering speciality per user input
         if user_input != "":
             word = df = df[df.Specialty == user_input]  
-
-     # filtering if user input is entered in lower and upper case
-
-            # match1 = "Family Medicine"
-            # match2 = "family medicine"
-            # Ratio = fuzz.ratio(match1.lower(),match2.lower())
-            # Partial_Ratio = fuzz.partial_ratio(match1.lower(),match2.lower())
-            # print(Ratio)
-            # print(Partial_Ratio)
-
         # filtering zip code per user input
         if user_zip != "":
             df = df[df.Zipcode == user_zip]
@@ -74,27 +62,27 @@ def login():
     # The requests module allows us to send HTTP requests using Python
     # Session (session) data is stored on the server
     if request.method == "POST":
-       # which will use a cookie with a defined expiration date
+       # which will use a cookie with a defined expiration date for the permanent_session_lifetime
         session.permanent = True
         # requesting from form
         user = request.form["nm"]
         session["user"] = user
+        # flash method is used to generate imformatiion messages
         flash("Login Succesful")
         return redirect(url_for("user"))
     else:
         if "user" in session:
             flash("Already Logged In!")
             return redirect(url_for("user"))
-
+        # generate output from a template file based on jinja2 engine
         return render_template("login.html")
 
-# user page    
+# user page / ###this function sessions in not in use ,but for future use##   
 @app.route("/user", methods=["POST", "GET"]) 
 def user():
     email = None
     if "user" in session:
         user = session["user"]
-
         if request.method == "POST":
             email = request.form["email"]
             session["email"] = email
@@ -116,11 +104,13 @@ def logout():
     session.pop("user", None)
     session.pop("email", None)
     # redirects user to login page if they log out
-    return redirect(url_for("login"))       
- 
+    return redirect(url_for("login"))  
+
+
+
     
             
-# main driver
+# main driver/ the allows or prevents parts of the code from being run when the modules are imported
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)
 

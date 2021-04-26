@@ -2,19 +2,18 @@
 {% block title %} Login Page{% endblock %}
 
 {% block content %}
-    <!-- flash statment for if you loggin in correctly -->
-    <!-- get_flashed_messages(), Pulls all flashed messages from the session and returns them -->
-   
+
 <!-- css styling -->
     <style>
- * {
-  font-family:'Poppins', san-serif;
-}
+/*changing the font for the whole  */
+    * {
+    font-family:'Poppins', san-serif;
+    }
     /* stying to the python logo */
 
     span.borderHeader {
     border: 2px solid white;
-}  
+    }  
 
     .logo {
     text-transform: uppercase;
@@ -30,7 +29,7 @@
     background-size: cover;    
     }
 
-    .login-box {
+    .login-box{
     width: 280px;
     position: absolute;
     top: 50%;
@@ -87,29 +86,32 @@
     </style>
     <!-- Python Doctors logo -->
     <div class="container">
-    <header>
-        <a href="/"><h2 class="logo borderHeader mt-5"><span class="borderHeader  mt-5 p-1">Python</span> Doctors</h2></a>
-        <div class="toggle "></div>
-      </header>
+        <header>
+            <a href="/"><h2 class="logo borderHeader mt-5"><span class="borderHeader  mt-5 p-1">Python</span> Doctors</h2></a>
+            <div class="toggle "></div>
+        </header>
     </div>
-
     <!-- login form for the login page -->
     {{ fontawesome_css() }} 
+    <!-- start of the login in inputs to log in -->
     <div class = "login-box">
         <form action="#" method="post">
-        <h1>Login</h1>
+            <h1>Login</h1>
+            <!-- user input -->
             <div class="textbox">
                 <i class="fas fa-user"></i>
                 <input type="text" placeholder="Username" name="nm">
             </div>
+            <!-- password inpur -->
             <div class="textbox">
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Password" name="" value="">
             </div>
             <input class="btn" type="submit"  name="" value="Sign in">
         </form>
+        <!-- end of form -->
         {{ fontawesome_js() }} 
-
+        <!-- start of the flash message that says if you've been logged our -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for msg in messages %} 
@@ -117,6 +119,10 @@
             {% endfor %}
         {% endif %} 
     {% endwith %} 
+    </div>
+    <!-- end of the flash message and the login -->
     {% endblock %}
-    </div> 
+    <!-- End of the code -->
+     
+    
  

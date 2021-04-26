@@ -4,26 +4,22 @@
 
 
 <style>
-
-
-
+/* color to cover the whole page */
   :root {
     --overlay-color:#03a9f4;
-
   }
+  /* remove all margin and padding from page and use different font */
  * {
   margin:0;
   padding:0;
   box-sizing: border-box;
   font-family:'Poppins', san-serif;
 }
+/* border for the pthon logo */
 span.borderHeader {
 border: 2px solid white;
 }
-
-
-
-
+/* aligning and postion for the showcase div/for the whole page */
 .showcase {
   position: absolute;
   right:0;
@@ -38,7 +34,7 @@ border: 2px solid white;
   z-index:2;
   transition: 2.0s; 
 }
-
+/*postion for the header and items for the center of the page  */
 .showcase header {
   position:absolute;
   top: 0;
@@ -50,7 +46,7 @@ border: 2px solid white;
   align-items: center;
   justify-content: space-between;
 }
-
+/* for video to cover the whole page */
 .showcase video {
   position: absolute;
   top: 0;
@@ -60,14 +56,16 @@ border: 2px solid white;
   object-fit: cover;
   opacity: 0.8;
 }
-
+/* for navbar when active /moves to the right */
 .showcase.active {
   right:300px
 }
+/* uppercase all the letters */
 .logo {
   text-transform: uppercase;
   cursor: pointer;
 }
+/* blending the video and the blue background color together */
 .overlay{
   position: absolute;
   top: 0;
@@ -77,33 +75,33 @@ border: 2px solid white;
   background-color: var(--overlay-color);
   mix-blend-mode:overlay;
 }
-
+/* for the text to sit on top on the page  */
 .text {
   position: relative;
   z-index: 10;
 }
-
+/* resizing the font for the text */
 .text h2 {
   font-size:5em;
   font-weight: 800;
   line-height: 1em;
   text-transform: uppercase;
 }
-
+/* resizing the font for the text */
 .text h3 {
   font-size:4em;
   font-weight: 700;
   line-height: 1em;
   text-transform: uppercase;  
 }
-
+/* resizing the font for the text */
 .text p {
   font-size:1.1em;
   margin:20px 0;
   font-weight: 400;
   max-width:700px ; 
 }
-
+/* effect for the navbar and add spacing  for the anchor tags */
 .text a {
  display: inline-block;
  font-size: 1em;
@@ -117,12 +115,11 @@ border: 2px solid white;
  transition: 0.2s;
  /* box-shadow: 0 0 5px 0; */
 }
-
+/* make the letter on the button to get biggger */
 .text a:hover {
-  letter-spacing: 6px;
-  
+  letter-spacing: 6px; 
 }
-
+/* makes the button toggle back and forth */
 .toggle {
   position: relative;
   width: 60px;
@@ -133,14 +130,14 @@ border: 2px solid white;
   background-position: center;
   cursor: pointer;
 }
-
+/* when active class/ it toggles back and forth */
 .toggle.active {
   background-image: url('/static/css/images/x.png');
   background-repeat: no-repeat;
   background-size: 25px;
   background-position: center;  
 }
-
+ /* not diplayed for viewing / this is for the future */
 .social {
   position:absolute;
   bottom: 20px;
@@ -149,14 +146,12 @@ border: 2px solid white;
   justify-content: center;
   align-items: center;
   display: none;
-  
 }
-
+ /* not diplayed for viewing / this is for the future */
 .social li {
   list-style:none;
-
 }
-
+ /* not diplayed for viewing / this is for the future */
 .social li a {
   display: inline-block;
   filter: invert(1);
@@ -164,11 +159,11 @@ border: 2px solid white;
   transform: scale(0.5);
   transition: 0.5;
 }
-
+ /* not diplayed for viewing / this is for the future */
 .social li a:hover {
   transform: scale(0.5) translateY(-15px);
 }
-
+/* postioning for the navbar */
 .menu {
   position: absolute;
   top: 0;
@@ -179,56 +174,53 @@ border: 2px solid white;
   align-items: center;
   justify-content: center;
 }
-
+/* removing the bullets from the anchor tags   */
 .menu ul {
   position: relative;
   list-style: none;
 }
-
+/* removing underlines from the achor tags */
 .menu ul li a {
  text-decoration: none;
  font-size:24px ;
  color: #111;
 }
-
+/* makes the word in the navbar turn blue when hoveres over */
 .menu ul li a:hover {
  color: var(--overlay-color);
 }
-
-
-
-
+/* padding on main header when less than 798px */
 @media(max-width:798px) {
   .showcase, 
   .showcase header {
     padding:40px
   }
-
+/* font change on h2 */
   .text h2 {
     font-size: 3em;
   }
+  /* font change on h3 */
   .text h3 {
   font-size: 2em;
   }
 }
-
-
+/* enables font-family poppin */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
   </style>
-
+<!-- start of the main hearder -->
 <section class="showcase">
   <header>
     <h2 class="logo borderHeader"><span class="borderHeader p-1">Python</span> Doctors</h2>
     <div class="toggle "></div>
   </header>
-
+  <!-- start of the video -->
   <video muted loop autoplay>
     <source src="{{ url_for('static', filename='css/images/doctorVideo.mp4')}}"/>
-   
   </video>
-
+  <!-- end of the video -->
+  <!-- overlay enables the blending of the viseo and blue background -->
 <div class="overlay"></div>
-
+<!-- start of the main text -->
 <div class="text">
   <h2>never stop</h2>
   <h3>
@@ -236,16 +228,16 @@ border: 2px solid white;
   <p>Our expertise lies in our ability to service a multitude of ethnicities, understanding their unique genetic makeups</p>
   <a href="/search">Find a doctor</a>
 </div>
-
+<!-- not yet enabled.. this is for the future -->
+<!-- start of the social media icons -->
 <ul class="social">
    <li><a href="#"><img src="{{ url_for('static', filename='css/images/fb.png')}}" alt="img of facebook"></a></li>
    <li><a href="#"><img width="49px" height="49px" src="{{ url_for('static', filename='css/images/twitter.png')}}" alt="img of twitter"></a></li>
-   <li><a href="#"><img width="49px" height="49px" src="{{ url_for('static', filename='css/images/instagram.png')}}" alt="img of instagram"></a></li>
-   
+   <li><a href="#"><img width="49px" height="49px" src="{{ url_for('static', filename='css/images/instagram.png')}}" alt="img of instagram"></a></li>  
 </ul>
-
+<!-- end of the social medai icona -->
 </section>
-
+<!-- start of the nav bar -->
 <div class="menu">
   <ul>
     <li> <a href="/">Home</a></li>
@@ -254,12 +246,10 @@ border: 2px solid white;
     <li> <a href="/logout">Logout</a></li>
  </ul>
 </div>
+<!-- End of the nav bar -->
 
-
-
-
- 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}
+<!-- End of the code -->
 
 

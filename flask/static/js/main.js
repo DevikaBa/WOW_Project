@@ -1,3 +1,4 @@
+// toggle the menu bar on the home page
 const menuToggle = document.querySelector('.toggle')
 const showcase = document.querySelector('.showcase')
 
