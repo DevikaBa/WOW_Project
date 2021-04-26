@@ -1,111 +1,88 @@
-# packages
+# Python libraries, using the Flask package allowed us to import functions necessary to make our program user friendly
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 from datetime import timedelta
 import pandas as pd
 import csv
+from flask_fontawesome import FontAwesome
+
 
 # create app instance
 app = Flask(__name__)
-app.secret_key = "hellotherebill"
-app.permanent_session_lifetime = timedelta(minutes=1)
+# using font awesome to create an attractive user page 
+fa = FontAwesome(app)
+app.secret_key = "PythonDoctors"
+app.permanent_session_lifetime = timedelta(minutes=1)    
 
-# df = pd.DataFrame({'Patient Name': ["Some name", "Another name"],
-#                        "Patient ID": [123, 456],
-#                        "Misc Data Point": [8, 53],
-#                        "zip codes": [ "000000", "999999"]})
+# this code is necessary to read the csv file  
 df = pd.read_csv("DoctorData.csv", index_col=0)
-# df.to_html("output.html")
-# pd.set_option('display.max_columns', 6)
-# pd.set_option('display.max_rows', 5)
-# # # print(df.head())
-
-# # print(df.loc[df['Zip code'] == 91301])
-# filt = (df['Specialty'] == 'Family Medicine')
-# print(df.loc[filt])
-# print(df[filt])
 
 
-@app.route("/patient_list", methods=["POST", "GET"])
-def patient_list():
-    return render_template("patient_list.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
-                           link_column="Patient ID", zip=zip)
-
+# the get and post methods are used to retrieve data from our database and post the data requested
 
 @app.route('/search', methods=['GET', 'POST'])
+# function for search page
 def search():
+    # HTTP request , comsuming data, GET request is used for viewing something
     if request.method == "GET":
         return render_template('search.html')
-
+    # POST is used for changing something
     elif request.method == 'POST':
+        # coding to read the csv file
         df = pd.read_csv("DoctorData.csv", index_col=0)
+        # coding that turns the zipcode function into string
         df['Zipcode'] = df['Zipcode'].astype(str)
+        # coding to allow the user to input for doctors names/specialty 
         user_input = request.form.get('user_input')
+        # coding to allow the user to input for zip codes searches
         user_zip = request.form.get('user_zip')
-         # if user input for specialty is not empty, filter doctor by specialty
+         
+       # filtering speciality per user input
         if user_input != "":
-            df = df[df.Specialty == user_input]
-        # if user zip is not empty , filter by that catagory 
+            word = df = df[df.Specialty == user_input]  
+        # filtering zip code per user input
         if user_zip != "":
             df = df[df.Zipcode == user_zip]
-        print(user_input)
-        print(user_zip)
-
-        
-
-        
-        flash("congrats, you have found your doctor") 
-
-
-
-        print(user_input)
-   
-        return render_template("patient_list.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
+        # rendering the search function
+        return render_template("search.html", column_names=df.columns.values, row_data=list(df.values.tolist()),
                            link_column="Patient ID", zip=zip)
     
         
         
 
         
-       
-        
-        
-
-    
-           
-    
-
-     
-
-       
-          
-
+# home page 
 @app.route("/home")
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
+# login in page
 @app.route("/login", methods=["POST", "GET"])
 def login():
+    # The requests module allows us to send HTTP requests using Python
+    # Session (session) data is stored on the server
     if request.method == "POST":
+       # which will use a cookie with a defined expiration date for the permanent_session_lifetime
         session.permanent = True
+        # requesting from form
         user = request.form["nm"]
         session["user"] = user
+        # flash method is used to generate imformatiion messages
         flash("Login Succesful")
         return redirect(url_for("user"))
     else:
         if "user" in session:
             flash("Already Logged In!")
             return redirect(url_for("user"))
-
+        # generate output from a template file based on jinja2 engine
         return render_template("login.html")
-   
+
+# user page / ###this function sessions in not in use ,but for future use##   
 @app.route("/user", methods=["POST", "GET"]) 
 def user():
     email = None
     if "user" in session:
         user = session["user"]
-
         if request.method == "POST":
             email = request.form["email"]
             session["email"] = email
@@ -117,18 +94,23 @@ def user():
         return render_template("user.html", user=user)    
     else:
         flash("You are not logged in!")
+        # redirect to the login page if your not logged in
         return redirect(url_for("login"))
-
+# log out page 
 @app.route("/logout")    
 def logout():
-    flash("you have been logged out!", "info")
+    # flashes this comment if your logged out
+    flash("you've been logged out!", "info")
     session.pop("user", None)
     session.pop("email", None)
-    return redirect(url_for("login"))       
- 
+    # redirects user to login page if they log out
+    return redirect(url_for("login"))  
+
+
+
     
             
-# main driver
+# main driver/ the allows or prevents parts of the code from being run when the modules are imported
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)
 

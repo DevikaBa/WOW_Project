@@ -4,13 +4,134 @@
     {% with messages = get_flashed_messages() %}    
         {% if messages %}
             {% for msg in messages %} 
-                <p>{{msg}}</p> 
+                <p class="text-danger">{{msg}}</p> 
             {% endfor %}
         {% endif %} 
     {% endwith %}
-<form action="#" method="POST">
-    <input type="email" name="email" placeholder="Enter Email" value="{{email if email}}"/> 
-    <input type="submit" value="submit"/>  
-</form>     
+    <!-- css styling -->
+<style>
+  
+/* changing font on the whole page */
+* {
+font-family:'Poppins', san-serif;
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+/*border on the logo */
+span.borderHeader {
+border: 2px solid white;
+}  
+/* upper case on the python doctor logo */
+.logo {
+text-transform: uppercase;
+cursor: pointer;
+color: white;
+}
+ /*hidding anchor tags once below 768px  */
+@media(max-width:768px) {
+   header a.menu {
+  display: none;
+          }
+}
+/* hide the nav bar when less than 768 */
+@media(max-width:768px) {
+   header a.menu {
+  display: none;
+          }
+}
+/* hide menu bar */
+a.hideBar {
+  display:none;
+}
+/*makes the nav bar scroll  */
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:1000 ;
+}
+/* padding and margin for so the navbar main column have spacing  */
+#main {
+padding: 16px;
+margin-top: 30px;
+}
+/* margin on the fontawesome search icon */
+.searchMargin {
+margin-right: 2px;
+}
 
+/*
+####################################
+ start of the video in background 
+###################################*/
+/*postion the dov to postion it-self  */
+.banner {
+  position: absolute;
+  width:100%;
+  height: 100vh;
+  overflow:hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* so video to sit in middle of page */
+.banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+/* the words to postion on the middle of page and fontsoze/etc.. */
+.banner h2 {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:#fff;
+  font-size: 30vw;
+  font-size:30vw;
+  text-align:center;
+  text-transform:uppercase;
+  color:#000;
+  line-height:100vh;
+  mix-blend-mode: screen; 
+}
+
+/* change of font on the logo */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+</style>
+    {{ fontawesome_css() }}
+    <nav id="navbar" class=" container-fluid  navbar navbar-light bg-primary inline ">
+        <header class=" justify-content-start mt-3 ">
+            <a href="/"> <h2 class="logo borderHeader  "><span class="borderHeader  mt-5 ml-5 p-1">Python</span> Doctors</h2></a>
+        </header>
+        <header class=" justify-content-end d-flex   ">
+            <a class="menu" href="/"> <button class="btn btn-outline-light  me-2 "><i class="fas fa-home"></i> HOME</button></a>
+            <a class="menu" href="/search"><button class="btn btn-outline-light  me-2"><i class="fas fa-search searchMargin"></i> Find a doctor</button></a>
+            <a class="menu" href="/login"><button class="btn btn-light text-primary   me-2"><i class="fas fa-sign-in-alt"></i> Log In</button></a>
+            <a class="menu" href="/login"></a></i></a>
+            <a class="hideBar"  href="#"> <button class="btn btn-outline-light  me-2 "><i class="fas fa-bars"></i></button></a>
+        </header>
+      </nav>    
+      {{ fontawesome_js() }} 
+    </header>
+  <!-- start of the video -->
+   <div class="banner">
+    <video muted loop autoplay>
+        <source src="{{ url_for('static', filename='css/images/video.mp4')}}"/>
+    </video>
+   <h2>JTC</h2>
+   </div>
+  
+  <!--End of the video  -->
+         
+         
+ <!-- enables javascript -->
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}
+<!-- end of code -->

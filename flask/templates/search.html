@@ -3,13 +3,42 @@
 {% block content %}
 
 <style>
+/* change the font to poppins  */
+* {
+  font-family:'Poppins', san-serif;
+  box-sizing: border-box;
+}
+/*border on the logo */
+ span.borderHeader {
+border: 2px solid white;
+}  
+/* upper case on the python doctor logo */
+.logo {
+text-transform: uppercase;
+cursor: pointer;
+color: white;
+}
+/*change the focus for the input  */
+input.inputResize:focus {
+  background-color: lightgrey;
+}
+
+/* changing font on the place holders */
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
 }
 
-.color1 {
-  background-color: lightblue;
+/* resize for the find a doctor on the search page */
+.JumboSize {
+ font-size: 5em;
+}
+/* resize on the input bar */
+.inputResize {
+height: 65px;
+border: 3px solid #007bff;
+margin-right: 10px;
+
 }
 
 @media (min-width:768px) {
@@ -17,177 +46,93 @@
   font-size: 3.5rem;
   }
 }
+/* make the navbar stay in place in a fixed postion */
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+/* spacing between the nav bar and the container/   */
+#main {
+  padding: 16px;
+  margin-top: 30px;
+}
+ 
+
+
+/* change of font on the logo/ this enables the poppin font  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 </style>
 
 
 
-<main role="main">
+<!-- nav bar -->
+{{ fontawesome_css() }} 
+<nav id="navbar" class=" container-fluid  navbar navbar-light bg-primary inline">
+    <header class=" justify-content-start mt-3 ">
+        <a href="/"> <h2 class="logo borderHeader  "><span class="borderHeader  mt-5 ml-5 p-1">Python</span> Doctors</h2></a>
+    </header>
+    <header class=" justify-content-end d-flex ">
+        <a href="/"> <button class="btn btn-outline-light  me-2"><i class="fas fa-home"></i> HOME</i></button></a>
+        <a href="/user"> <button class="btn btn-outline-light  me-2"><i class="fas fa-newspaper"></i> News </button></a>
+        <a href="/login"><button class="btn btn-light text-primary  me-2"><i class="fas fa-sign-in-alt"></i> Log In</button></a>
+    </header>
+  </nav>
+<!-- main section of the page -->
+<main id="main" role="main">
     <section class="jumbotron text-center">
-      <div class="container color1">
-                         
-        <h1 class="jumbotron-heading mt-3">{{results}}</h1>
-                        
-         
-          <p class="lead text-muted"> Find a doctor</p>
+      <div class="container color1">           
+        <h1 class="jumbotron-heading  py-3 mt-5 JumboSize text-primary"><i class="fas fa-stethoscope"></i> Find a doctor</h1>
+          <p class="lead text-muted py-3"> <strong>Let us assist you with all of your healthcare needs.</strong></p>
           <form action="#" method="POST" >
             <div class="form-group d-flex py-5 " >
-              <input type="search" class="form-control mr-3"  placeholder="Doctors name, Condition or Specialty" name="user_input">
-              <input type="text" class="form-control ml-3"  placeholder="Enter Zip Code" name="user_zip">
+              <input id="searchDoc" type="search" class="form-control mr-3 shadow inputResize "  placeholder="Doctors name, Condition or Specialty" name="user_input">
+              <input type="text" class="form-control ml-3 shadow inputResize hoverInput "  placeholder="Enter Zip Code" name="user_zip">
             </div>
-            <p>
-                <button href="#" type="submit"  class="btn btn-primary myu-2 col-4">Search</a>
-                
+            <p class="pb-5">
+                <button href="#" type="submit"  class="btn btn-primary  col-4 shadow-lg hoverInput ">Search</a>
             </p>
           </form>
-   
-          
-  
         </div>
     </section> 
+    </main>
+    {{ fontawesome_js() }}
+<!-- end main page and   search tool -->
+      
 
-      <div class="album py-5 bg-light">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-4">
-                      <div class="card mb-4 shadow-sm">
-                          <img src="#" alt="doctors" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                          <div class="card-body">
-                             
-                                <p class="card-text">
-                                    video title
-                                </p>
-                              
-                              <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                      <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                  </div>
-                                  <small class="text-muted"> 9 mins</small>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="card mb-4 shadow-sm">
-                          <img src="#" alt="doctors" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                          <div class="card-body">
-                              <p class="card-text">video title</p>
-                              <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                      <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                  </div>
-                                  <small class="text-muted"> 9 mins</small>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="" alt="" class="bd-placeholder-img card-img-top" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">video title</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">view</button>
-                                </div>
-                                <small class="text-muted"> 9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+     <!-- start of doctors datafame  -->
+     {% for row in row_data %}
+      <div  class=" container card mt-2 borderCard">
+        <div class="card-body ">
+            <div class="row">
+              <div class="col-8">  
+                <h4 class="text-primary ">{% for col, row_ in zip(column_names, row) %}
+                {% if col == link_column %}
+                </h4>
+                <p><strong>{{ row_ }}</strong></p>
+                {% else %}
+                <p>{{row_}}</p>
+                {% endif %}
+                {% endfor %}
+              </div>
+              <div class="col-2">  
+              <p><strong></strong></p> 
+              </div>
+            </div> 
         </div>
-    </div>
+      </div> 
+     {% endfor %}
+     <!-- end of  doctors datafame -->
+     <!-- start of the footer -->
+     {{ fontawesome_css() }} 
+    <footer class="text-center shadow-lg">
 
-   
-
-
-</main>
-
-
-
-
+       </div class="outer-footer">
+       2021 Copyright &copy; JTC student. All Rights Reserved
+      </div>
+    </footer>
+    {{ fontawesome_js() }}
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
 {% endblock %}
