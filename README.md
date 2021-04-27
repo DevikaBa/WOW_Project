@@ -65,7 +65,7 @@ The README.mdfile, found a Doctor Database, cleaned up the database with teammat
 
 ##### Eva worked on: 
 
-Added to the README.md file, cleaned up the database, commented the code, backend duties by taking on the tasks of filtering our Doctor Database using Python, Jupyter Notebook, and lastly Flask to make the flow of data from front to back as smooth as possible with unit testing
+
 
 
 ##### Gary worked on:
