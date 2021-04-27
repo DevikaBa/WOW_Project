@@ -17,7 +17,7 @@ In our MVP, users will be able to search for doctors by inputting thier zip code
  
 ### Instructions on how to run the app: 
 
-#### on a PC:
+#### on a PC or Mac:
 
 cd into flask
 
