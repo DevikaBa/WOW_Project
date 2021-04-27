@@ -20,14 +20,20 @@ In our MVP, users will be able to search for doctors by inputting thier zip code
 #### on a PC:
 
 cd into flask
+
 git pull
+
 set FLASK_APP=app.py
+
 python -m flask run
+
 copy the url
+
 paste url in your browser
+
 viola!
 
-#### suggestions on what to search for: 
+#### Suggestions on what to search for: 
 
 Speciality - Anesthesiology, Family Medicine, Pathology, Surgery
 
