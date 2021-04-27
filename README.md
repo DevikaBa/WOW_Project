@@ -18,6 +18,7 @@ In our MVP, users will be able to search for doctors by inputting thier zip code
 ### Instructions on how to run the app: 
 
 #### on a PC:
+
 cd into flask
 git pull
 set FLASK_APP=app.py
@@ -26,7 +27,12 @@ copy the url
 paste url in your browser
 viola!
 
-#### on a Mac:
+#### suggestions on what to search for: 
+
+Speciality - Anesthesiology, Family Medicine, Pathology, Surgery
+
+Zip Code - 95032, 93960, 92078, 96001 
+
 
 ### We used the following packages/libraries:
 
@@ -40,7 +46,7 @@ We used timedelta to perform date manipulations
 We used pandas for data analysis of our doctor database
 
 #### import csv
-We used import csv generate our database 
+We used import csv to generate our database 
 
 
 ### documenting 
