@@ -56,26 +56,7 @@ def search():
 def home():
     return render_template("index.html")
 
-# login in page
-@app.route("/login", methods=["POST", "GET"])
-def login():
-    # The requests module allows us to send HTTP requests using Python
-    # Session (session) data is stored on the server
-    if request.method == "POST":
-       # which will use a cookie with a defined expiration date for the permanent_session_lifetime
-        session.permanent = True
-        # requesting from form
-        user = request.form["nm"]
-        session["user"] = user
-        # flash method is used to generate imformatiion messages
-        flash("Login Succesful")
-        return redirect(url_for("user"))
-    else:
-        if "user" in session:
-            flash("Already Logged In!")
-            return redirect(url_for("user"))
-        # generate output from a template file based on jinja2 engine
-        return render_template("login.html")
+
 
 # user page / ###this function sessions in not in use ,but for future use##   
 @app.route("/user", methods=["POST", "GET"]) 
@@ -96,15 +77,17 @@ def user():
         flash("You are not logged in!")
         # redirect to the login page if your not logged in
         return redirect(url_for("login"))
-# log out page 
-@app.route("/logout")    
-def logout():
-    # flashes this comment if your logged out
-    flash("you've been logged out!", "info")
-    session.pop("user", None)
-    session.pop("email", None)
-    # redirects user to login page if they log out
-    return redirect(url_for("login"))  
+ 
+
+
+
+
+ 
+
+
+
+
+
 
 
 

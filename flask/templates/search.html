@@ -4,6 +4,24 @@
 
 <style>
 /* change the font to poppins  */
+@media (max-width:553px) {
+  header h2.logo  {
+    /* justify-content: center; */
+    font-size: 2.5rem;
+  }
+  header a {
+   margin-right: 10px;
+  }
+
+  section.jumbotron  {
+   margin-top: 100px;
+  }
+  section h1.JumboSize {
+   font-size: 4.0em;
+  }
+  
+
+}
 * {
   font-family:'Poppins', san-serif;
   box-sizing: border-box;
@@ -108,7 +126,7 @@ margin-right: 10px;
         <div class="card-body ">
             <div class="row">
               <div class="col-8">  
-                <h4 class="text-primary ">{% for col, row_ in zip(column_names, row) %}
+                <h4 class="text-primary colorFont ">{% for col, row_ in zip(column_names, row) %}
                 {% if col == link_column %}
                 </h4>
                 <p><strong>{{ row_ }}</strong></p>
