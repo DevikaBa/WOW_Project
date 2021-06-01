@@ -56,8 +56,6 @@ def search():
 def home():
     return render_template("index.html")
 
-
-
 # user page / ###this function sessions in not in use ,but for future use##   
 @app.route("/news", methods=["POST", "GET"]) 
 def news():
@@ -68,7 +66,7 @@ def news():
 @app.route("/doctor_news")
 def doctor_news():
     return render_template("doctor_news.html") 
-    
+
 # JTC represent
 @app.route("/user")
 def user():
