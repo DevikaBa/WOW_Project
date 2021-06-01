@@ -100,7 +100,24 @@ margin-right: 2px;
   color:#000;
   line-height:100vh;
   mix-blend-mode: screen; 
+  
 }
+
+/* .banner p{
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 30;
+  background:#fff;
+  font-size: 30px;
+  font-size:30px;
+  text-align:center;
+  text-transform:uppercase;
+  color:blue;
+  line-height:100vh;
+  mix-blend-mode: screen;  
+} */
 
 /* change of font on the logo */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
@@ -113,8 +130,8 @@ margin-right: 2px;
         <header class=" justify-content-end d-flex   ">
             <a class="menu" href="/"> <button class="btn btn-outline-light  me-2 "><i class="fas fa-home"></i> HOME</button></a>
             <a class="menu" href="/search"><button class="btn btn-outline-light  me-2"><i class="fas fa-search searchMargin"></i> Find a doctor</button></a>
-            <a class="menu" href="/login"><button class="btn btn-light text-primary   me-2"><i class="fas fa-sign-in-alt"></i> Log In</button></a>
-            <a class="menu" href="/login"></a></i></a>
+            <a class="menu" href="/doctor_news"><button class="btn btn-light text-primary   me-2"><i class="fas fa-sign-in-alt"></i> News</button></a>
+            <a class="menu" href="/doctor_news"></a></i></a>
             <a class="hideBar"  href="#"> <button class="btn btn-outline-light  me-2 "><i class="fas fa-bars"></i></button></a>
         </header>
       </nav>    
@@ -126,6 +143,7 @@ margin-right: 2px;
         <source src="{{ url_for('static', filename='css/images/video.mp4')}}"/>
     </video>
    <h2>JTC</h2>
+   <p>we are here to help</p>
    </div>
   
   <!--End of the video  -->

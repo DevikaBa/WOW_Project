@@ -7,10 +7,8 @@ menuToggle.addEventListener('click', () => {
     showcase.classList.toggle('active')
 })
 
-var changeFont = function() {
-    $("container h4.colorFont").css("display", "none")
-}
-changeFont()
+
+
 
 
 

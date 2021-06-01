@@ -59,24 +59,25 @@ def home():
 
 
 # user page / ###this function sessions in not in use ,but for future use##   
-@app.route("/user", methods=["POST", "GET"]) 
-def user():
-    email = None
-    if "user" in session:
-        user = session["user"]
-        if request.method == "POST":
-            email = request.form["email"]
-            session["email"] = email
-            flash("Email was saved")
-        else:
-            if "email" in session:
-                email = session["email"]
+@app.route("/news", methods=["POST", "GET"]) 
+def news():
+        return render_template("user.html")    
 
-        return render_template("user.html", user=user)    
-    else:
-        flash("You are not logged in!")
-        # redirect to the login page if your not logged in
-        return redirect(url_for("login"))
+  
+# more doctor news
+@app.route("/doctor_news")
+def doctor_news():
+    return render_template("doctor_news.html") 
+    
+# JTC represent
+@app.route("/user")
+def user():
+    return render_template("user.html")           
+
+
+         
+
+
  
 
 

@@ -1,0 +1,541 @@
+{% extends "base.html" %}
+{% block title %} Home Page{% endblock %}
+{% block content %}
+<!-- sytle for the whole page css -->
+<style>
+
+/* margin /padding/and width for the content */
+.content {
+  margin-top: 100px;
+  padding: 0;
+  width: 100%;
+
+}
+
+/* position for healing the world */
+.starts_with_you {
+  background-image: url("../images/content/pagebuilder/walk_bg_video_image_2020.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center;
+  max-height: 618px;
+  height: 618px;
+  overflow: hidden;
+  position: relative;
+}
+/* position for the video */
+#bg-video { display: inline-block; height: auto; width: 100%; }
+/* position on the healing the world */
+.tag_line {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+/*font and etc. for healing the world  */
+.tag_line p {
+  color: #ffffff;
+  font-family: HouschkaAltPro; 
+  font-size: 50px;
+  font-weight: 800;
+  padding-bottom: 40px;
+  padding-top: 200px; 
+  text-align: center;
+  text-transform: uppercase;
+  line-height:normal;
+  -moz-font-feature-settings:"liga=1";
+  -moz-font-feature-settings:"liga";
+  -ms-font-feature-settings:"liga";
+  -webkit-font-feature-settings:"liga";
+  font-feature-settings:"liga";
+}
+/* different font-sizes and etc. for the button */
+a.btn-find, a.action-button {
+  background-color: #03bcf4;
+  border: 3px solid white ;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-family:HouschkaAltPro, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 30px;
+  padding: 12px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* SEE STORY button-- to make the button look interactive */
+a.btn-find:hover, a.action-button:hover, a.action-button:active, a.action-button:focus {
+  background-color: white;
+  border: 3px solid #03bcf4;
+/*      color: #ffa400; */
+  color: #03bcf4;
+ 
+}
+/* SEE STORY button-- to make the button look interactive */
+.btn-find2:hover, .btn-find2:focus, .btn-find2:active {
+  background-color: white;
+  border: 1px solid #0d6efd;
+  transition: 1s  ;
+/*  color: #ffa400; */
+  color: #0d6efd;
+}
+/* hovering over card */
+.hoverOn:hover {
+  box-shadow: 0 0px 10px black;
+  transition: 800ms ;
+  transform: translateY(5px) scale(1);
+ 
+}
+/* take away the margins */
+.starts_with_you a.btn-find {
+   margin-top: 0; 
+  }
+
+/*font-size and etc. for the h2  */
+h2.content{
+  font-family:HouschkaAltPro, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #fff;
+ 
+}
+ /* hidden on the nav bar */
+.hidden { display: none; }
+.invisible { visibility: hidden; }
+
+/* background for the body */
+body {
+    background: #07252d;
+    height:auto!important;
+} 
+/* design and colors etc. for the animation  */
+h2#python {
+    position: relative;
+    font-size: 5em;
+    letter-spacing: 5px;
+    color: #0e3742;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0008);
+    line-height: 0.70em;
+    outline: none;
+    animation: animate 5s linear infinite;
+
+}
+/* animation for the words */
+@keyframes animate {
+    0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92% 
+    {
+        color: #03bcf4;
+        text-shadow: none;
+    }
+    18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100% {
+        color: white;
+        text-shadow: 0 0 10px #03bcf4,
+        0 0 20px #03bcf4,
+        0 0 40px #03bcf4,
+        0 0 80px #03bcf4,
+        0 0 160px #0e3742; 
+    }
+
+    
+}
+
+  /* note in use for later date */
+    .starts_with_you {
+        animation: leaves 35s ease-in-out infinite  ;
+        -webkit-animation: leaves 35s ease-in-out infinite  ;
+    }
+
+/* this is nav bar */
+@media (max-width:553px) {
+  header h2.logo  {
+    /* justify-content: center; */
+    font-size: 2.5rem;
+  }
+  /* margins for the space for the header */
+  header a {
+   margin-right: 10px;
+  }
+  /* margins to the jumbotron words */
+  section.jumbotron  {
+   margin-top: 100px;
+  }
+  /* font to the word in the jumbotron */
+  section h1.JumboSize {
+   font-size: 4.0em;
+  }
+  
+
+}
+/* applies font-family to all the page and box-sizing */
+* {
+  font-family:'Poppins', san-serif;
+  box-sizing: border-box;
+}
+/*border on the logo */
+ span.borderHeader {
+border: 2px solid white;
+}  
+/* upper case on the python doctor logo */
+.logo {
+text-transform: uppercase;
+cursor: pointer;
+color: white;
+}
+/*change the focus for the input  */
+input.inputResize:focus {
+  background-color: lightgrey;
+}
+
+/* changing font on the place holders */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+}
+
+/* resize for the find a doctor on the search page */
+.JumboSize {
+ font-size: 5em;
+}
+/* resize on the input bar */
+.inputResize {
+height: 65px;
+border: 3px solid #007bff;
+margin-right: 10px;
+
+}
+/* font size of the placeholder gets smaller */
+@media (min-width:768px) {
+  .bd-placeholder-img-lg {
+  font-size: 3.5rem;
+  }
+}
+/* make the navbar stay in place in a fixed postion */
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+/* spacing between the nav bar and the container/   */
+#main {
+  padding: 16px;
+  margin-top: 100px;
+}
+
+/* heart rate */
+.heart-rate {
+max-width: 180px;
+height: 100px;
+position: relative;
+margin:0px auto;
+top:160px;
+overflow:hidden;
+    
+}
+/* the lighting fades back in */
+.fade-in {
+  position: absolute;
+  width: 100%;
+  height:100%;
+  background-color: #07252d;
+  top: 0;
+  right: 0;
+  animation: heartRateIn 4.5s linear infinite;
+
+}
+/* the lighting fades out */
+.fade-out {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  top: 0;
+  left: -120%;
+  animation: heartRateOut 4.5s linear infinite;
+
+  background: #07252d;
+  background: -moz-linear-gradient(left, #07252d 0%, #07252d 50%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-linear-gradient(left,#07252d 0%, #07252d 50%, rgba(255, 255, 255, 0) 100%);
+  background: -o-linear-gradient(left,#07252d 0%,#07252d 50%, rgba(255, 255, 255, 0) 100%);
+  background: -ms-linear-gradient(left,#07252d 0%#07252d 50%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right,#07252d 0%#07252d 80%, rgba(255, 255, 255, 0) 100%);
+}
+/*animation for the heartrate going in */
+@keyframes heartRateIn {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 0%;
+  }
+  100% {
+    width: 0;
+  }
+}
+/*animation for the heartrate going out  */
+@keyframes heartRateOut {
+  0% {
+    left: -120%;
+  }
+  30% {
+    left: -120%;
+  }
+  100% {
+    left: 0;
+  }
+}
+/* space for between the loco and the healing the world */
+div.tag_line p {
+    margin-top: 100px;
+}
+
+/* header */
+.headerFontSize {
+  font-size: 47px;
+  line-height: 1.07;
+  color:#3e4855;
+}
+
+/* creating a circle with an image inside */
+.infoCircle {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 53px;
+  background-position: 0% 0%;
+  background-image: url('/static/css/images/profile.jpg');
+  margin-right: 10px;
+  /* background-image: url("https://image.cnbcfm.com/api/v1/image/105999290-156207573420720190625-img_9473.jpg?v=1562075764&w=60&h=60"); */
+ 
+}
+/* change on the anchor tags */
+div.d-flex div a {
+  text-decoration: none;
+  color:#6258ff;
+}
+
+
+
+/* change of font on the logo/ this enables the poppin font  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+ 
+
+
+
+
+
+
+
+
+
+
+</style>
+<!-- nav baf for the logo and list items -->
+<nav id="navbar" class=" container-fluid  navbar navbar-light bg-primary inline">
+    <header class=" justify-content-start mt-3  ">
+        <a href="/"> <h2 class="logo borderHeader  "><span class="borderHeader  mt-5 ml-5 p-1">Python</span> Doctors</h2></a>
+         
+    </header>
+    <!-- section for the nav bar  -->
+    <header class=" justify-content-end d-flex ">
+        <a href="/"> <button class="btn btn-outline-light  me-2"><i class="fas fa-home"></i> HOME</i></button></a>
+        <a href="/search"> <button class="btn btn-outline-light  me-2"><i class="fas fa-newspaper"></i> Find a doctor </button></a>
+        <a href="/user"><button class="btn btn-light text-primary  me-2"><i class="fas fa-sign-in-alt"></i> JTC</button></a>
+    </header>
+  </nav>
+
+<div class="content-container ">
+    <div class="content clearfix ">
+        <div class="myevents hidden">
+
+        </div>
+        <!-- heartrate -->
+    <div class="starts_with_you" style="height: 558px;">
+        <div class="heart-rate" >
+            <svg  version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">
+              <polyline fill="none" stroke="red" stroke-width="3" stroke-miterlimit="1" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"
+              />
+            </svg>
+            <div class="fade-in"></div>
+            <div class="fade-out"></div>
+          </div>
+        <!-- logo -->
+        <h2 class="content" id="python" contenteditable="true"><span >Python</span> doctors</h2>
+      
+        <div class="tag_line">
+            <p>Healing the world</p>
+            <a href="/search" id="findwalk" class="btn-find" href="javascript:void(0);">Find a doctor</a>
+        </div>
+       
+        <div class="overlayfooter">
+            <p>
+                <a href="#"></a>
+                <a href="#"></a>
+            </p>
+            <p>
+                <a class="play-vid toggle-item hidden" href="#">Play Video</a>
+
+            </p>
+        </div>
+    </div>
+    </div>
+
+</div>
+<!--end of the jumbotron -->
+<!-- six card with videos -->
+<div class="container-fluid bg-white   ">
+  <header class="headerMargin">
+  <div class="row">
+    <div class="col-12  mt-4  ">
+
+      <h1 class="headerFontSize"><strong>Regular exercise can reduce your risk of developing<br> severe Covid: study</strong></h1>
+    </div>
+    <div class="mt-2">
+      <h6 class=" ">Published Wed, May 2021 <span>3:22 PST</span></h6>
+    </div>
+    <div>
+      <div class="d-flex ">
+        <div class="infoCircle  mt-2  "></div>
+        <div class="text-dark"><a href="#">Gary Brown<br> </a><span  >@GaryBrown</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  </header>
+ 
+  <!-- start of the row -->
+  <!-- first card -->
+  <div class="row   ">
+    <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12   ">
+     
+        <div class="card mt-5 hoverOn  " >
+          <div class="card-body">
+            <h4 class="card-title">HEALTH AND WELLNESS
+            </h4>
+            <p class="card-text">
+              Regular exercise can reduce your risk of developing severe Covid: study</p>
+            <a target="_blank" href="https://www.cnbc.com/2021/04/14/regular-exercise-can-reduce-your-risk-of-severe-covid-study.html" class="btn btn-primary btn-find2">See Story</a>
+          </div>
+          <video muted loop autoplay controls>
+            <source src="{{ url_for('static', filename='css/images/video.mp4')}}" style="height: 100%;" style="width:100%"/>
+          </video>
+          <img class="mt-1 p-3" src="{{ url_for('static', filename='css/images/makeit.svg')}}" style="height: 100%;" style="width:100%"/>
+
+          
+        </div>
+      
+    </div>
+     <!-- second card -->
+    <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12 ">
+
+        <div class="card mt-5 hoverOn " >
+          <div class="card-body">
+            <h4 class="card-title"> PHYSICIAN SUPPORT GROUPS</h4>
+            <p class="card-text">Making meaningful connections with your colleagues can give deeper meaning to your profession</p>
+            <a target="_blank" href="https://www.aafp.org/fpm/2000/1000/p76.html" class="btn btn-primary btn-find2">See Story</a>
+          </div>
+          <video muted loop autoplay controls>
+            <source src="{{ url_for('static', filename='css/images/groupdoctors.mp4')}}" style="height: 100%;" style="width:100%"/>
+          </video>
+          <img  class="mt-1 p-3" src="{{ url_for('static', filename='css/images/FPMLogo.png')}}" style="height: 116px;" style="width:100%"/>
+        </div>
+        
+    </div>
+    <!-- third card -->
+    <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12 ">
+        <div class="card mt-5 hoverOn" >
+          <div class="card-body">
+            <h4 class="card-title">AMBULANCE SERVICES</h4>
+            <p class="card-text">Our fleet includes basic life support, advanced life support, and specialty ambulances providing emergency response.</p>
+            <a target="_blank" href="https://www.nyp.org/safety/emergency-medical-services/ambulance-services" class="btn btn-primary btn-find2">See Story</a>
+          </div>
+          <video muted loop autoplay controls>
+            <source src="{{ url_for('static', filename='css/images/doctor_street.mp4')}}" style="height: 100%;" style="width:100%"/>
+          </video>
+          <img  class="mt-1 p-3" src="{{ url_for('static', filename='css/images/newyork.png')}}" style="height: 116px;" style="width:100%"/>
+        </div>
+      
+    </div>
+
+    
+
+  </div>
+
+  <!-- forth  card  with new row-->
+  <!-- new row for the divs -->
+  <div class="row ">
+    <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12 ">
+
+      <div class="card mt-5 mb-5 hoverOn" >
+        <div class="card-body">
+          <h4 class="card-title">AMERICAN SURGEONS</h4>
+          <p class="card-text">What do surgeons do day in, day out? Where are the best practice opportunities?</p>
+          <a target="_blank" href="https://www.facs.org/education/resources/medical-students/faq/job-description" class="btn btn-primary btn-find2">See Story</a>
+        </div>
+        <video muted loop autoplay controls="">
+          <source src="{{ url_for('static', filename='css/images/doctor_surgery.mp4')}}" style="height: 100%;" style="width:100%"/>
+        </video>
+        <img  class="mt-1 p-3" src="{{ url_for('static', filename='css/images/surgeons.svg')}}" style="height: 116px;" style="width:100%"/>
+      </div>
+    
+  </div>
+  <!-- fifth  card -->
+  <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12 ">
+
+      <div class="card mt-5 mb-5 hoverOn" >
+        <div class="card-body">
+          <h4 class="card-title">What Are X-Rays?</h4>
+          <p class="card-text">X-rays are images that use a small doses of ionized radiation to take pictures of the inside of your body called radiographs.</p>
+          <a target="_blank" href="https://www.webmd.com/a-to-z-guides/what-is-x-ray" class="btn btn-primary btn-find2">See Story</a>
+        </div>
+        <video muted loop autoplay controls>
+          <source src="{{ url_for('static', filename='css/images/doctor_xray.mp4')}}" style="height: 100%;" style="width:100%"/>
+        </video>
+        <img  class="mt-1 p-3" src="{{ url_for('static', filename='css/images/webmd_logo.svg')}}" style="height: 116px;" style="width:100%"/>
+      </div>
+      
+  </div>
+  <!-- last  card -->
+
+  <div class="col-lg 3 col-md-3 col-sm-12 col-xs-12 ">
+    <div class="card mt-5 mb-5 hoverOn" >
+      <div class="card-body">
+        <h4 class="card-title">Inside DC’s Secret Covid Morgue</h4>
+        <p class="card-text"> The District built a secret disaster morgue, and trained people who had never previously seen a dead body to care for the dead.</p>
+        <a target="_blank" href="https://www.washingtonian.com/2021/02/22/inside-dcs-secret-covid-morgue/" class="btn btn-primary btn-find2">See Story</a>
+      </div>
+      <video muted loop autoplay controls>
+        <source src="{{ url_for('static', filename='css/images/morgue.mp4')}}" style="height: 100%;" style="width:100%"/>
+      </video>
+      <img  class="mt-1 p-3" src="{{ url_for('static', filename='css/images/washington.webp')}}" style="height: 116px;" style="width:100%"/>
+    </div>
+    
+</div>
+  </div>
+
+
+</div>
+{{ fontawesome_css() }} 
+<footer class="text-center shadow-lg ">
+
+   </div class="outer-footer text-danger mt-5 ">
+   <p class="text-danger mt-5">2021 Copyright &copy; JTC student. All Rights Reserved</p>
+  
+  </div>
+</footer>
+{{ fontawesome_js() }}
+
+
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+{% endblock %}
